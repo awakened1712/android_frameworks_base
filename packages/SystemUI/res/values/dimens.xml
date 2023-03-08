@@ -1733,4 +1733,7 @@
     <dimen name="network_traffic_width">24sp</dimen>
     <dimen name="network_traffic_padding">1dp</dimen>
 
+    <!-- Maximum vertical offset of statusbar for burn-in protection -->
+    <dimen name="status_bar_offset_max_y">4dp</dimen>
+
 </resources>
