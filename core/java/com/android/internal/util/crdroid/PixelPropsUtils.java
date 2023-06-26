@@ -255,12 +255,7 @@ public class PixelPropsUtils {
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
             if (packageName.equals("com.google.android.apps.photos")) {
-                if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
-                    propsToChange.putAll(propsToChangePixelXL);
-                } else {
-                    if (isPixelDevice) return;
-                    propsToChange.putAll(propsToChangePixel5);
-                }
+                propsToChange.putAll(propsToChangePixelXL);
             } else if (isPixelDevice) {
                 return;
             } else if (packageName.equals("com.android.vending")) {
@@ -300,9 +295,6 @@ public class PixelPropsUtils {
                 setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
             }
         } else {
-
-            if (!SystemProperties.getBoolean("persist.sys.pixelprops.games", false))
-                return;
 
             if (Arrays.asList(packagesToChangeROG6).contains(packageName)) {
                 if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
