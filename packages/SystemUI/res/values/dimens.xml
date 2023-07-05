@@ -1730,5 +1730,7 @@
     <dimen name="screenrecord_dot_size">48dp</dimen>
 
     <!-- Network traffic -->
-    <dimen name="network_traffic_width">25sp</dimen>
+    <dimen name="network_traffic_width">24sp</dimen>
+    <dimen name="network_traffic_padding">1dp</dimen>
+
 </resources>
