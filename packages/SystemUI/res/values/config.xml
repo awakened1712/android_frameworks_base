@@ -68,7 +68,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        internet,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,mictoggle,cameratoggle
+        wifi,cell,rotation,screenrecord,bt,nfc,hotspot,usb_tether,location,airplane,night,reduce_brightness,flashlight,dark,cast
     </string>
 
     <!-- The class path of the Safety Quick Settings Tile -->
