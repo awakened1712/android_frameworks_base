@@ -1221,13 +1221,6 @@ final class InstallPackageHelper {
                                         + " doesn't support runtime permissions but the old"
                                         + " target SDK " + oldTargetSdk + " does.");
                     }
-                    // Prevent persistent apps from being updated
-                    if (oldPackage.isPersistent()
-                            && ((installFlags & PackageManager.INSTALL_STAGED) == 0)) {
-                        throw new PrepareFailure(PackageManager.INSTALL_FAILED_INVALID_APK,
-                                "Package " + oldPackage.getPackageName() + " is a persistent app. "
-                                        + "Persistent apps are not updateable.");
-                    }
                 }
             }
 
