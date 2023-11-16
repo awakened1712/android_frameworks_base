@@ -402,13 +402,27 @@ public class PixelPropsUtils {
         }
     }
 
+     private static void setVersionFieldString(String key, String value) {
+        try {
+            if (DEBUG) Log.d(TAG, "Defining prop " + key + " to " + value);
+            Field field = Build.VERSION.class.getDeclaredField(key);
+            field.setAccessible(true);
+            field.set(null, value);
+            field.setAccessible(false);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Log.e(TAG, "Failed to set prop " + key, e);
+        }
+    }
+
     private static void spoofBuildGms() {
-        // Alter model name and fingerprint to Pixel 2 to avoid hardware attestation enforcement
-        setPropValue("DEVICE", "walleye");
-        setPropValue("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-        setPropValue("MODEL", "Pixel 2");
-        setPropValue("PRODUCT", "walleye");
-        setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O);
+        // Alter build parameters to Nexus 6P for avoiding hardware attestation enforcement
+        setPropValue("DEVICE", "bullhead");
+        setPropValue("ID", "OPR6.170623.013");
+        setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
+        setPropValue("MODEL", "Nexus 5X");
+        setPropValue("PRODUCT", "bullhead");
+        setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
+        setVersionFieldString("SECURITY_PATCH", "2017-08-05");
     }
 
     private static boolean isCallerSafetyNet() {
